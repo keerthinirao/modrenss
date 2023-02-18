@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/modrenss/static/css/main.dd2d4c17.css",
-    "main.js": "/modrenss/static/js/main.2899700e.js",
+    "main.js": "/modrenss/static/js/main.84067ef4.js",
     "static/js/787.ec704a7a.chunk.js": "/modrenss/static/js/787.ec704a7a.chunk.js",
     "static/media/KurtiRm.png": "/modrenss/static/media/KurtiRm.ee0dc8e9bd88605bc9ff.png",
     "static/media/ETHNICBLOUSE.png": "/modrenss/static/media/ETHNICBLOUSE.a3e7b4e07ea4bab39dce.png",
@@ -15,11 +15,11 @@
     "static/media/SectionFourThree.webp": "/modrenss/static/media/SectionFourThree.ef7089c4196de13fc06a.webp",
     "index.html": "/modrenss/index.html",
     "main.dd2d4c17.css.map": "/modrenss/static/css/main.dd2d4c17.css.map",
-    "main.2899700e.js.map": "/modrenss/static/js/main.2899700e.js.map",
+    "main.84067ef4.js.map": "/modrenss/static/js/main.84067ef4.js.map",
     "787.ec704a7a.chunk.js.map": "/modrenss/static/js/787.ec704a7a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dd2d4c17.css",
-    "static/js/main.2899700e.js"
+    "static/js/main.84067ef4.js"
   ]
 }
