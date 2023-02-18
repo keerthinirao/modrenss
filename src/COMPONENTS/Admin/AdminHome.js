@@ -3,6 +3,9 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import './AdminHome.css'
 const AdminHome = () => {
   const navigate=useNavigate();
+  useEffect(()=>{
+    window.scrollTo({top:0})
+   })
   useEffect(()=>{navigate('/admin/products')},[])
   return (
     <div className='adminHome'>

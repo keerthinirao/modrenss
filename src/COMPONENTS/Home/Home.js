@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Home.css'
 import SectionFive from './SectionFive'
 import SectionFour from './SectionFour'
@@ -13,6 +13,9 @@ DESCRIPTION ON COMPONENT
 */
 
 const Home = () => {
+  useEffect(()=>{
+    window.scrollTo({top:0})
+   })
   return (
     <div>
         <SectionOne></SectionOne>

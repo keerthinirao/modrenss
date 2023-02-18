@@ -15,6 +15,10 @@ const Login = () => {
     const {uid,user,setUpdateUser}=useContext(Store)
 
     const navigate=useNavigate();
+    
+    useEffect(()=>{
+        window.scrollTo({top:0})
+       })
 
     useEffect(()=>{
         console.log("in the useeffect of login js ")

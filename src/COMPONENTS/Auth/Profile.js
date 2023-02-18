@@ -8,13 +8,14 @@ import { auth, db } from './firebase';
 import './Profile.css'
 
 const Profile = () => {
-    const {user,uid,messageHandlerFunction,setUpdateUser}=useContext(Store);
+    const {user,uid,messageHandlerFunction,setUpdateUser,updateUser}=useContext(Store);
     const [phNumber,setPhNumber]=useState('')
     const [name,setName]=useState('')
     const [alternateNumber,setAlternateNumber]=useState('')
     const [email,setEmail]=useState('')
     const [address,setAddress]=useState("");
     const navigate=useNavigate();
+
 
 
     const signoutHandler=async ()=>{
@@ -32,6 +33,8 @@ const Profile = () => {
     useEffect(()=>{
         if(user && uid){
             setPhNumber(user.phNumber)
+             
+          
         }
     })
     useEffect(()=>{
@@ -46,9 +49,10 @@ const Profile = () => {
         setEmail(user.email)
         setAddress(user.address)
         setAlternateNumber(user.alternateNumber)
+        console.log("####  user updated is %%% ###   ",user)
 
 
-    },[])
+    },[updateUser,uid,user])
     
     const updateHandler=async ()=>{
         const colRef=collection(db, "users")
@@ -62,6 +66,11 @@ const Profile = () => {
             })
             setUpdateUser(p=>!p)
             messageHandlerFunction("sucessfully updated ",'green')
+            setName('')
+            setPhNumber('')
+            setEmail('')
+            setAddress('')
+            setAlternateNumber('')
             
         }catch(e){
             messageHandlerFunction("error in updating",'crimson')
@@ -77,8 +86,8 @@ const Profile = () => {
                 
                 <CustomBoxProfile text={'Phone Number'} setState={setPhNumber} value={phNumber} change={true}></CustomBoxProfile>
                 <CustomBoxProfile text={'Alternate Number'} setState={setAlternateNumber} value={alternateNumber} ></CustomBoxProfile>
-                <CustomBoxProfile text={'Name'} setState={setName} ></CustomBoxProfile>
-                <CustomBoxProfile text={'Email'} setState={setEmail} ></CustomBoxProfile>
+                <CustomBoxProfile text={'Name'} setState={setName}  value={name}></CustomBoxProfile>
+                <CustomBoxProfile text={'Email'} setState={setEmail} value={email} ></CustomBoxProfile>
                 <div>
                     <p>Address</p>
                 <textarea onChange={(e)=>setAddress(e.target.value)} value={address}></textarea>
@@ -92,6 +101,7 @@ const Profile = () => {
                     <p>Signout</p>
                 </div>
            </div>
+    
         {/* <CustomBoxProfile text={'Address'} changeHandler={(e)=>setAddress(e.target.value)} value={user.phNumber}></CustomBoxProfile> */}
     </div>
   )

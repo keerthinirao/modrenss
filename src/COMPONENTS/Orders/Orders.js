@@ -13,6 +13,10 @@ const Orders = () => {
     const navigate=useNavigate();
 
     useEffect(()=>{
+        window.scrollTo({top:0})
+       })
+
+    useEffect(()=>{
         console.log('heyyyy ia m orderes $$$$  ')
     })
     useEffect(()=>{

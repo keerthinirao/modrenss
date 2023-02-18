@@ -12,6 +12,10 @@ const Product = () => {
     const {id}=useParams()
 
     const {popUpHandlerFunction,uid}=useContext(Store)
+
+    useEffect(()=>{
+        window.scrollTo({top:0})
+       })
     
     useEffect(()=>{
         if(state){
