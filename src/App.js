@@ -21,7 +21,8 @@ import PopUp from './COMPONENTS/Utils/PopUp'
 import Orders from './COMPONENTS/Orders/Orders'
 import AdminOrders from './COMPONENTS/Admin/AdminOrders'
 import OrderPop from './COMPONENTS/Utils/OrderPop'
-import Sms from './COMPONENTS/Utils/Sms'
+// import Sms from './COMPONENTS/Utils/Sms'
+import ContactUs from './COMPONENTS/Utils/ContactUs'
 
 export const Store=createContext()
 
@@ -153,7 +154,7 @@ const App = () => {
         <Route path='/profile' element={<Profile></Profile>}></Route>
         <Route path='/product/:id' element={<Product></Product>}></Route>
         <Route path='/orders' element={<Orders></Orders>}></Route>
-        <Route path='/sms' element={<Sms></Sms>}></Route>
+        <Route path='/sms' element={<ContactUs></ContactUs>}></Route>
 
       </Routes>
       <SectionSix></SectionSix>
