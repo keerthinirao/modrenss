@@ -4,7 +4,7 @@ import './SectionTwo.css'
 import SectionTwoItems from './SectionTwoItems'
 const SectionTwo = () => {
   return (
-    <div className='sectionTwo'>
+    <div id='sectionTwo' className='sectionTwo'>
         <h2 className='Header'>
         Your choice, we’ll design & stitch, just for you!   </h2>
         <p className='Para'>

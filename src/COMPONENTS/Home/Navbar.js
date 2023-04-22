@@ -67,10 +67,10 @@ const Navbar = () => {
             <Logo ></Logo>
         </div>
         <div className='navItems'>
-            <p>ETHNIC</p>
-            <p>CASUAL</p>
-            <p>FORMAL</p>
-            <p>PARTYWEAR</p>
+            <p onClick={()=>{navigate('/category/KURTI')}}>Kurti</p>
+            <p onClick={()=>{navigate('/category/SAREE')}}>Saree</p>
+            <p onClick={()=>{navigate('/category/LEHANGA')}}>Lehenga</p>
+           
 
         </div>
         <div className='navAuth'>

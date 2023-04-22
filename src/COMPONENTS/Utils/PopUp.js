@@ -1,5 +1,5 @@
 import { addDoc, arrayUnion, collection, doc, Timestamp, updateDoc } from 'firebase/firestore';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {  useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Store } from '../../App';
 import Cancel from '../../RESOURCES/IMAGES/Cancel';
@@ -8,6 +8,7 @@ import './PopUp.css'
 
 const PopUp = ({message,redirect,isConfirm}) => {
     const navigate=useNavigate();
+    const [data,setData]=useState('')
     const {popUpHandlerFunction,messageHandlerFunction,uid,user}=useContext(Store)
     // const {categoryname}=useParams()
     const location=useLocation()
@@ -24,7 +25,7 @@ const PopUp = ({message,redirect,isConfirm}) => {
         // console.log('location is 7777   ---',location.pathname)
         const productId=location.pathname.replace('/product/','')
         console.log("id is %%%%   ",productId)
-        console.log("in orders is going to happen ")
+        console.log("in orders is going to happen  ",data)
         const colRef=collection(db,'orders')
         try{
             const documnet=await addDoc(colRef,{
@@ -32,7 +33,8 @@ const PopUp = ({message,redirect,isConfirm}) => {
                 productId:productId,
                 status:'ordered',
                 phNumber:user.phNumber,
-                date:Timestamp.now()
+                date:Timestamp.now(),
+                message:data
 
             })
             console.log('order was sucessfull added to orders document id is ',document.id)
@@ -70,7 +72,9 @@ const PopUp = ({message,redirect,isConfirm}) => {
     <div className='popUpDiv'>
         <div className='popUp'>
             <div className='popCancel'  onClick={()=>popUpHandlerFunction('','/',false)}><Cancel></Cancel></div>
-            <p>{message} </p>
+            <p style={{textAlign:'left'}}>{message} </p>
+            <textArea value={data} style={{width:"100%",marginLeft:"auto",marginRight:"auto",padding:"10px"}} onChange={(e)=>setData(e.target.value)}></textArea>
+
             <div className='popButton' onClick={isConfirm?orderHandler:clickHandler}>
                 <p>{isConfirm?'Confirm':'Continue'}</p>
             </div>
